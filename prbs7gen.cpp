@@ -5,7 +5,7 @@
 #include <fstream>
 #include <filesystem>
 
-static const int SEQ_SIZE = 127 * 3;
+static const int SEQ_SIZE = 127; // 127 * 3 to see 127/254 bit repitition
 
 
 int main() {
@@ -40,18 +40,11 @@ int main() {
         for (int i = outBufferCount - 1; i > 0; i--) {
             outBuffer[i] = outBuffer[i - 1];
         }
-
         // write out
         outputFile << outBuffer[2] << bitArr[7];
-
-        // just buffer prbs7 out
-        // outputFile2 << outBuffer[2];
-
-        // just prbs7 out
-        // outputFile2 << outBuffer[7];
-
         // xor bit 1 and 6 to get new bit 0
         int newBit = bitArr[1] ^ bitArr[7];
+        // xor bit 2 and 4 to get new buffer 0
         int newBitBuff = bitArr[2] ^ bitArr[4];
         bitArr[0] = newBit;
         outBuffer[0] = newBitBuff;

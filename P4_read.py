@@ -11,13 +11,13 @@ from extract_csv import extract_voltage_rigol
 from extract_csv import extract_voltage_tek
 from extract_csv import extract_voltage_tek_2chan
 
-OUTPUT_CHART = False
+OUTPUT_CHART = True
 
 PAM4_PERIOD = 1 / (10.00e6 * 0.5) # when VCO = 2500MHz and ndiv = 250
 # for lvds use 10.22e6, now use 10.00e6
 
 # number of samples to read from csv file
-SAMPLES_TO_READ = 1000000
+SAMPLES_TO_READ = 10000000
 # read offset: PAM4 signal is read at (1/2 + READ_OFFSET) witin half period (give as a fraction)
 READ_OFFEST = 0
 # phase offset between clk and pam4 (give in seconds), found using histogram
@@ -174,6 +174,9 @@ def main():
         ax2.plot(time, pam_voltage, linestyle='-', alpha=1, color="green", zorder=2, label="pam_voltage")
         ax2.set_ylabel("PAM4 (V)", color="green")
         ax2.tick_params(axis='y', labelcolor="green")
+        xlim = ax2.get_xlim()
+        ax2.hlines(y=[-0.01250, -0.0005, 0.0115], xmin=xlim[0], xmax=xlim[1], colors='b', linestyles='-')
+
 
         ax2.scatter(mid_time, mid_values, color="purple", s=8, label="mid", zorder=3) # mid markers
 
@@ -184,6 +187,7 @@ def main():
 
         plt.plot(time, pam_voltage, linestyle='-', alpha=1, markersize=4, marker='', color="green", zorder=2) # all data
         plt.plot(time, clk_voltage, linestyle='-', alpha=1, markersize=4, marker='', color="pink", zorder=1) # all data
+         
 
 
     # histogram to make sure all middle values dont overlap

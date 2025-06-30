@@ -1,5 +1,6 @@
 # Purpose:
 # manually calculate period for PAM4 
+# currently unused / not needed. 
 
 import numpy as np
 import pandas as pd

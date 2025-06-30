@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def extract_increment_rigol(line):
     # line is in form X,CH2,Start,Increment, where increment is sample period

@@ -14,7 +14,7 @@ from extract_csv import extract_voltage_tek
 PAM4_PERIOD = 1 / (10.22e6 * 0.5)
 #PAM4_PERIOD = 1.08e-7
 
-SAMPLES_TO_READ = 1000000
+SAMPLES_TO_READ = 10000000
 
 # for rigol
 BOTTOM_TRESHHOLD = -0.001228

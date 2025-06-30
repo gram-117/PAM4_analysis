@@ -23,7 +23,7 @@ def main():
     # Get the current script directory (PAM4/)
     current_dir = Path(__file__).parent
     # Construct full paths
-    input_file = (current_dir.parent / "oscope_data" / "raw_out.txt").resolve()
+    input_file = (current_dir.parent / "output" / "raw_out.txt").resolve()
 
     lock_on_sequence = "01110011010110"
     prbs_sequence = "11000011101101101010011100011101111001010011100111101111001011001001101000111101001000001100010111111100000100110011111110100101100110001011100001111101100000011001001010101101000010001001000000101000010101011101010001000110111010111110001101110011010110"
@@ -54,6 +54,7 @@ def main():
             
     print("Total samples read: %d" % total_samples_read)
     print("Total errors: %d" % total_errors)
+    print("Bit error rate: %f" % (total_errors / total_samples_read))
         # read PAM4 data on rising edge of clock (in the middle of each half PAM4 period)
         # rising clock occurs when clk goes from below 0.15V to above 0.15V
         # convert to voltages to binary and write to raw file
