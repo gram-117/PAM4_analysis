@@ -1,5 +1,5 @@
 # Purpose:
-# take large amount of raw/unprocessed PAM4 oscilloscope data and plots onto V vs T chart
+# take large amount of raw/unprocessed PAM4 and clk oscilloscope data and plots onto V vs T chart
 
 import numpy as np
 import pandas as pd

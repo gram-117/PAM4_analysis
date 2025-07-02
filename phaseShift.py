@@ -1,5 +1,6 @@
 # Purpose:
-# takes edges % PAM4 period to give phase shift 
+# takes edges % PAM4 period to give phase shift to find average phase shift
+# if a large number of samples are read there is noticable drift
 
 import numpy as np
 import pandas as pd

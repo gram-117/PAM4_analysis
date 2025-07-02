@@ -1,6 +1,7 @@
 # Purpose:
 # plot edges and mid values for moderate sized data sets of PAM4 from metarock chip
 # drift occurs due to imperfect PAM4 period value, sync up data with clock for future
+# NO LONGER USED
 
 import numpy as np
 import pandas as pd

@@ -1,5 +1,5 @@
 # Purpose:
-# take large amount of raw/unprocessed PAM4 oscilloscope data and decodes into binary
+# creates eye diagram from raw oscope data
 
 import numpy as np
 import pandas as pd
@@ -90,7 +90,7 @@ def main():
             
 
         # read PAM4 data on rising edge of clock (in the middle of each half PAM4 period)
-        # rising clock occurs when clk goes from below 0.15V to above 0.15V
+        # falling edge of clock occurs when clk goes from < 0.12 to > 0.18
         # convert to voltages to binary and write to raw file
     
         
@@ -126,7 +126,6 @@ def main():
             if count > SAMPLES_TO_READ:
                 break
     
-    # break into odd and even and show same seq. 
 
     plt.plot(eye_times, pam_voltage, linestyle='-', markersize=4, marker='', color="purple", alpha=.5, lw=.1)  
     

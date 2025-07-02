@@ -1,3 +1,4 @@
+# functions used to extract oscope data from .csv files
 import numpy as np
 import pandas as pd
 

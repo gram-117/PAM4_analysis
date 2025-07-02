@@ -27,6 +27,19 @@ def main():
 
     lock_on_sequence = "01110011010110"
     prbs_sequence = "11000011101101101010011100011101111001010011100111101111001011001001101000111101001000001100010111111100000100110011111110100101100110001011100001111101100000011001001010101101000010001001000000101000010101011101010001000110111010111110001101110011010110"
+
+    # extra side check for carl, ratio of 0s to 1s 
+    zero_count = 0;
+    one_count = 0;
+    for i in range(len(prbs_sequence)):
+        if prbs_sequence[i] == '0':
+            zero_count += 1
+        else:
+            one_count += 1
+
+    print("number of 0s in prbs7 halfrate is: %d", zero_count)
+    print("number of 1s in prbs7 halfrate is: %d", one_count)
+
     with open(input_file, "r") as infile:
         # when key matches lock, begin BER
         key_sequence = infile.read(14)

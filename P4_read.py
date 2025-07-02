@@ -1,5 +1,6 @@
 # Purpose:
 # take large amount of raw/unprocessed PAM4 oscilloscope data and decodes into binary
+# splits prbs7 sequences into two seperate files as well as one raw out file
 
 import numpy as np
 import pandas as pd
